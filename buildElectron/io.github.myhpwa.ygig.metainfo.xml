@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.myhpwa.ygig</id>
+  <name>你比我猜</name>
+  <summary>查詢通過台灣食藥署許可藥品的資訊</summary>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <description>
+    <p>
+    * 此 app 可以查詢通過台灣食藥署許可藥品的資訊，比如英文名、成分、效用/副作用。搜尋藥品功能支援搜中文名、英文名、製造商。
+    * 查詢到的藥品可加至書籤頁、可分享網址。
+    * 可離線使用。
+    </p>
+  </description>
+  <url type="homepage">https://github.com/MrMYHuang/ygig</url>
+  <launchable type="desktop-id">io.github.myhpwa.ygig.desktop</launchable>
+  <developer_name>Meng-Yuan Huang</developer_name>
+  <screenshots>
+    <screenshot type="default">
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="1.2.0" date="2022-05-29">
+      <description>
+        <ul>
+          <li>更新至 Electron 19.0.1.</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+</component>

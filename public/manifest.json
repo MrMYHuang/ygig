@@ -1,0 +1,34 @@
+{
+  "short_name": "你比我猜",
+  "name": "你比我猜",
+  "icons": [
+    {
+      "src": "assets/icon/icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    },
+    {
+      "src": "assets/icon/icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
+    }
+  ],
+  "scope": "/ygig/",
+  "start_url": "/ygig/",
+  "url_handlers": [
+    {
+      "origin": "https://myhpwa.github.io"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "成語詞典",
+      "url": "/ygig/dictionary/search",
+      "icons": [{ "src": "assets/icon/icon.png", "sizes": "1024x1024" }]
+    },
+  ],
+  "display": "standalone",
+  "theme_color": "black",
+  "background_color": "black"
+}

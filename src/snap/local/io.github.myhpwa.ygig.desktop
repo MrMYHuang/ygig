@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=你比我猜
+GenericName=你比我猜
+Exec=ygig/ygig --no-sandbox
+Icon=${SNAP}/meta/gui/icon.png
+Type=Application
+Terminal=false
+Categories=None;
+StartupWMClass=ygig
