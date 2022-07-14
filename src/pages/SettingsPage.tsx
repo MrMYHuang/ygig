@@ -79,7 +79,7 @@ class _SettingsPage extends React.Component<PageProps, StateProps> {
         });
         IndexedDbFuncs.saveFile(item.dataKey, idiomsData);
       }
-      this.setState({ isDownloading: false, idiomsDataDownloadRatio: 1, showToast: true, toastMessage: `離線藥品資料更新完畢！` });
+      this.setState({ isDownloading: false, idiomsDataDownloadRatio: 1, showToast: true, toastMessage: `離線成語資料更新完畢！` });
     } catch (error) {
       console.error(error);
       this.setState({ isDownloading: false, showToast: true, toastMessage: `${error}` })
@@ -272,7 +272,7 @@ class _SettingsPage extends React.Component<PageProps, StateProps> {
               <div tabIndex={0}></div>{/* Workaround for macOS Safari 14 bug. */}
               <IonIcon icon={refreshCircle} slot='start' />
               <div style={{ width: '100%' }}>
-                <IonLabel className='ion-text-wrap uiFont'>離線藥品資料</IonLabel>
+                <IonLabel className='ion-text-wrap uiFont'>離線成語資料</IonLabel>
                 <IonLabel className='ion-text-wrap uiFont'>上次更新：{new Date(this.props.settings.offlineDataDownloadDate).toLocaleDateString()}</IonLabel>
                 <IonProgressBar value={this.state.idiomsDataDownloadRatio} />
               </div>
@@ -281,7 +281,7 @@ class _SettingsPage extends React.Component<PageProps, StateProps> {
             <IonItem>
               <div tabIndex={0}></div>{/* Workaround for macOS Safari 14 bug. */}
               <IonIcon icon={refreshCircle} slot='start' />
-              <IonLabel className='ion-text-wrap uiFont'>啟用離線藥品更新通知</IonLabel>
+              <IonLabel className='ion-text-wrap uiFont'>啟用離線資料更新通知</IonLabel>
               <IonToggle slot='end' checked={this.props.settings.alertUpdateOfflineData} onIonChange={e => {
                 const isChecked = e.detail.checked;
 

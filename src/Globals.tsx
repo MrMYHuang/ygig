@@ -181,7 +181,7 @@ const Globals = {
   disableAppLog,
   ygigDb,
   dataResources: [
-    { item: "離線西藥資料", dataKey: idiomsDataKey, url: idiomsDataUrl },
+    { item: "離線成語資料", dataKey: idiomsDataKey, url: idiomsDataUrl },
   ],
   appSettings: {
     'theme': '佈景主題',

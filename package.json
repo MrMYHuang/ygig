@@ -2,14 +2,17 @@
   "name": "ygig",
   "homepage": "/ygig",
   "productName": "你比我猜",
-  "pwaVersion": "1.0.0",
+  "pwaVersion": "1.0.1",
   "version": "1.0.0",
   "license": "MIT",
   "keywords": [
     "遊戲",
-    "猜成語"
+    "猜成語",
+    "成語猜猜",
+    "你比我猜",
+    "成語詞典"
   ],
-  "description": "你比我猜查詢 app 可查詢藥品全名、英文名、用法用量、主成分。App 支援離線瀏覽、字型調整。",
+  "description": "一款成語遊戲 + 成語詞典的 app。隨機挑成語出題，出題者比畫，答題者猜題。",
   "repository": "https://github.com/MrMYHuang/ygig",
   "author": {
     "name": "Meng-Yuan Huang",

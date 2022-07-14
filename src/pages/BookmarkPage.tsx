@@ -52,7 +52,7 @@ class _BookmarkPage extends React.Component<PageProps, State> {
       const bookmark = this.props.bookmarks[queryParams.item];
       this.props.history.push(`${Globals.pwaUrl}/dictionary/${bookmark.uuid}`);
     } else if (!this.hasBookmark) {
-      this.setState({ showToast: true, toastMessage: '無書籤！請搜尋藥品並加至書籤。' });
+      this.setState({ showToast: true, toastMessage: '無書籤！請搜尋成語並加至書籤。' });
       this.props.history.push(`${Globals.pwaUrl}/dictionary/search`);
     }
     //console.log( 'view will enter' );
@@ -70,7 +70,7 @@ class _BookmarkPage extends React.Component<PageProps, State> {
 
     setTimeout(() => {
       if (!this.hasBookmark) {
-        this.setState({ showToast: true, toastMessage: '無書籤！請搜尋藥品並加至書籤。' });
+        this.setState({ showToast: true, toastMessage: '無書籤！請搜尋成語並加至書籤。' });
         this.props.history.push(`${Globals.pwaUrl}/dictionary/search`);
       }
     }, 0);

@@ -94,7 +94,6 @@ interface State {
   showToast: boolean;
   toastMessage: string;
   showUpdateAlert: boolean;
-  showDataDownloadEndAlert: boolean;
   showRestoreAppSettingsToast: boolean;
 }
 
@@ -156,7 +155,6 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
       showUpdateAlert: false,
       showRestoreAppSettingsToast: (queryParams.settings != null && this.originalAppSettingsStr != null) || false,
       showToast: false,
-      showDataDownloadEndAlert: false,
       toastMessage: '',
     };
 
@@ -276,7 +274,7 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
     const timeDiff = now.getTime() - offlineDataDownloadDate.getTime();
     if (this.props.settings.alertUpdateOfflineData &&
       (timeDiff > 1000 * 60 * 60 * 24 * 30)) {
-      this.setState({ showToast: true, toastMessage: `離線藥品資料已 30 天未更新，可至設定頁更新。` });
+      this.setState({ showToast: true, toastMessage: `離線成語資料已 30 天未更新，可至設定頁更新。` });
     }
   }
 
@@ -353,24 +351,6 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
               });
             }, ...this.props
           }}
-        />
-
-        <IonAlert
-          cssClass='uiFont'
-          isOpen={this.state.showDataDownloadEndAlert}
-          backdropDismiss={false}
-          header={'藥品資料下載完成！'}
-          buttons={[
-            {
-              text: '關閉',
-              cssClass: 'primary uiFont',
-              handler: (value) => {
-                this.setState({
-                  showDataDownloadEndAlert: false,
-                });
-              },
-            },
-          ]}
         />
 
         <IonToast
