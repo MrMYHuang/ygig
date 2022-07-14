@@ -26,7 +26,7 @@
       "name": "成語詞典",
       "url": "/ygig/dictionary/search",
       "icons": [{ "src": "assets/icon/icon.png", "sizes": "1024x1024" }]
-    },
+    }
   ],
   "display": "standalone",
   "theme_color": "black",
