@@ -90,7 +90,7 @@ class _BookmarkPage extends React.Component<PageProps, State> {
     bookmarks.forEach((bookmark, i) => {
       let routeLink = ``;
       let label = `${bookmark.uuid}`;
-      routeLink = `${Globals.pwaUrl}/dictionary/${bookmark.uuid}`;
+      routeLink = `${Globals.pwaUrl}/dictionary/idiom/${bookmark.uuid}`;
       rows.push(
         <IonItemSliding key={`bookmarkItemSliding_` + i}>
           <IonItem key={`bookmarkItem_` + i} button={true} onClick={async event => {
