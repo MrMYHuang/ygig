@@ -1,5 +1,5 @@
 {
-  "extends": null,
+  "extends": "electronBuilderConfigs/common.json",
   "mac": {
     "type": "distribution",
     "identity": null

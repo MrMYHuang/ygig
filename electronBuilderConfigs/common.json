@@ -14,7 +14,7 @@
   },
   "mac": {
     "mergeASARs": false,
-    "category": "public.app-category.reference",
+    "category": "public.app-category.word-games",
     "minimumSystemVersion": "10.11"
   }
 }

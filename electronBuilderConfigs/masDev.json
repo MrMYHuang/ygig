@@ -1,6 +1,5 @@
 {
   "extends": "electronBuilderConfigs/common.json",
-  "icon": "buildElectron/icon.icns",
   "mac": {
     "type": "development",
     "identity": null
