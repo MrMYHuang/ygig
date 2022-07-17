@@ -22,13 +22,13 @@
 
 * <a id='report'>App 異常回報</a>
 
-  App 設定頁的異常回報鈕使用方法為：執行會造成 app 異常的步驟後，再至設定頁按下異常回報鈕，即會自動產生一封E-mail，包含異常的記錄，發送此 E-mail 給我們即可。
+  App 設定頁的異常回報鈕使用方法為：執行會造成 app 異常的步驟後，再至設定頁按下異常回報鈕，即會自動產生一封 E-mail，包含異常的記錄，發送此 E-mail 給我們即可。
 
 程式碼為開放 (MIT License)，可自由下載修改、重新發佈。
 
 ## 支援平台
 已在這些環境作過安裝、測試:
-* Windows 11 +  Chrome
+* Windows 11 + Chrome
 * Android 9 + Chrome
 * macOS 12 + Chrome
 * iPad Pro + Safari
@@ -47,7 +47,7 @@
   2. App 商店。
 
 ### <a id='web-app'>從瀏覽器開啟/安裝</a>
-請用 Chrome (Windows, macOS, Linux, Android 作業系統使用者)、Safari (iOS 使用者)瀏覽器開啟以下網址：
+請用 Chrome (Windows, macOS, Linux, Android 使用者)、Safari (iOS 使用者)瀏覽器開啟以下網址：
 
 https://myhpwa.github.io/ygig
 
@@ -80,7 +80,7 @@ https://myhpwa.github.io/ygig
 <img src='https://github.com/MrMYHuang/ygig/raw/main/docs/images/Safari/AppIcon.png' width='50%' />
 
 ### <a id='storeApp'>從 App 商店安裝</a>
-#### iOS 14.0+ (iPhone), iPadOS 14.0+ (iPad) - 使用 App Store
+#### iOS 14.0+ - 使用 App Store
 <a href='https://apps.apple.com/app/id1634551497' target='_blank'>
 <img width="auto" height='60px' src='https://github.com/MrMYHuang/ygig/raw/main/docs/images/Download_on_the_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
 </a>
@@ -90,7 +90,7 @@ https://myhpwa.github.io/ygig
 <img width="auto" height='60px' src='https://github.com/MrMYHuang/ygig/raw/main/docs/images/Download_on_the_Mac_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
 </a>
 
-#### Android - 使用 Google Play Store
+#### Android 6.0+ - 使用 Google Play Store
 <a href='https://play.google.com/store/apps/details?id=io.github.myhpwa.ygig' target='_blank'>
 <img width="auto" height='60px' alt='Google Play立即下載' src='https://github.com/MrMYHuang/ygig/raw/main/docs/images/zh-tw_badge_web_generic.png'/>
 </a>
