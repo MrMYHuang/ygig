@@ -81,12 +81,12 @@ https://myhpwa.github.io/ygig
 
 ### <a id='storeApp'>從 App 商店安裝</a>
 #### iOS 14.0+ (iPhone), iPadOS 14.0+ (iPad) - 使用 App Store
-<a href='https://apps.apple.com/us/app/id1634551497' target='_blank'>
+<a href='https://apps.apple.com/app/id1634551497' target='_blank'>
 <img width="auto" height='60px' src='https://github.com/MrMYHuang/ygig/raw/main/docs/images/Download_on_the_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
 </a>
 
 #### macOS 10.11+ - 使用 Apple App Store
-<a href='https://apps.apple.com/us/app/id1634551497' target='_blank'>
+<a href='https://apps.apple.com/app/id1634551497' target='_blank'>
 <img width="auto" height='60px' src='https://github.com/MrMYHuang/ygig/raw/main/docs/images/Download_on_the_Mac_App_Store_Badge_CNTC_RGB_blk_100217.svg'/>
 </a>
 
