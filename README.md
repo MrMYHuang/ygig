@@ -95,7 +95,7 @@ https://myhpwa.github.io/ygig
 <img width="auto" height='60px' alt='Google Play立即下載' src='https://github.com/MrMYHuang/ygig/raw/main/docs/images/zh-tw_badge_web_generic.png'/>
 </a>
 
-#### Windows 10 - 使用 Microsoft Store
+#### Windows 10+ - 使用 Microsoft Store
 <a href='https://www.microsoft.com/store/apps/9PHK9WGRCL9Z' target='_blank'>
 <img width="auto" height='60px' src='https://developer.microsoft.com/store/badges/images/Chinese-Traditional_get-it-from-MS.png' alt='Chinese Traditional badge'/>
 </a>
@@ -106,6 +106,9 @@ https://myhpwa.github.io/ygig
 </a>
 
 ## <a id='history'>版本歷史</a>
+* PWA 1.0.3:
+  * [修正] iOS Safari 初始化會閃退的問題。
+
 * PWA 1.0.2:
   * [修正] 書籤無法開啟。
 

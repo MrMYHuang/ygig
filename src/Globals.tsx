@@ -1,10 +1,12 @@
 import fs from 'fs';
-import xlsxParser from 'xlsx-parse-json';
+import * as XLSX from 'xlsx';
 import * as zip from 'zip.js-myh';
 import { isPlatform, IonLabel } from '@ionic/react';
 import { DownloadEndedStats, DownloaderHelper, ErrorStats, Stats } from 'node-downloader-helper';
 import { IDictItem } from './models/DictItem';
 import IndexedDbFuncs from './IndexedDbFuncs';
+
+XLSX.set_fs(fs);
 
 const pwaUrl = process.env.PUBLIC_URL || '';
 const bugReportApiUrl = 'https://vh6ud1o56g.execute-api.ap-northeast-1.amazonaws.com/bugReportMailer';
@@ -74,8 +76,10 @@ function disableAppLog() {
   console.error = consoleError;
 }
 
-async function xlsToJson(file: Blob) {
-  return xlsxParser.onFileSelection(file) as Promise<any>;
+async function xlsToJson(data: Uint8Array) {
+  const workbook = XLSX.read(data);
+  const sheet = workbook.Sheets['1-'];
+  return { '1-': XLSX.utils.sheet_to_json(sheet) };
 }
 
 async function readZip(filePath: string, entryIndex: number = 0) {
@@ -137,7 +141,7 @@ const checkServiceWorkerInterval = 20;
 let serviceWorkerLoaded = false;
 let _serviceWorkerReg: ServiceWorkerRegistration;
 async function getServiceWorkerReg() {
-  if (serviceWorkerLoaded) { 
+  if (serviceWorkerLoaded) {
     return _serviceWorkerReg;
   }
 

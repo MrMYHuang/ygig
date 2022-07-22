@@ -202,7 +202,7 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
         const filePath = await Globals.downloadData(item.url, async (progress: number) => {
         });
         const data = await Globals.readZip(filePath);
-        idiomsData = await Globals.xlsToJson(new Blob([data]));
+        idiomsData = await Globals.xlsToJson(data);
         IndexedDbFuncs.saveZippedFile(item.dataKey, new Uint8Array(Buffer.from(JSON.stringify(idiomsData)).buffer));
       }
 
