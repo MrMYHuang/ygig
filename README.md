@@ -106,6 +106,9 @@ https://myhpwa.github.io/ygig
 </a>
 
 ## <a id='history'>版本歷史</a>
+* PWA 1.0.4:
+  * [修正] Chrome 瀏覽器開啟自動中翻英後，app 功能異常的 bug。
+
 * PWA 1.0.3:
   * [修正] iOS Safari 初始化會閃退的問題。
 
