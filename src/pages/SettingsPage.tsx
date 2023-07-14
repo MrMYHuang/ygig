@@ -80,6 +80,11 @@ class _SettingsPage extends React.Component<PageProps, StateProps> {
         IndexedDbFuncs.saveFile(item.dataKey, idiomsData);
       }
       this.setState({ isDownloading: false, idiomsDataDownloadRatio: 1, showToast: true, toastMessage: `離線成語資料更新完畢！` });
+      this.props.dispatch({
+        type: 'SET_KEY_VAL',
+        key: 'offlineDataDownloadDate',
+        val: new Date().toISOString(),
+      });
     } catch (error) {
       console.error(error);
       this.setState({ isDownloading: false, showToast: true, toastMessage: `${error}` })
@@ -212,7 +217,7 @@ class _SettingsPage extends React.Component<PageProps, StateProps> {
                       a.click();
                       a.remove();
                     }}>匯出</IonButton>
-                    <input id='importJsonInput' type='file' accept='.json' style={{ display: 'none' }} onChange={async (ev) => {
+                    <input id='importJsonInput' aria-label='Export' type='file' accept='.json' style={{ display: 'none' }} onChange={async (ev) => {
                       const file = ev.target.files?.item(0);
                       const fileText = await file?.text() || '';
                       try {

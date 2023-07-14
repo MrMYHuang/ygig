@@ -2,7 +2,7 @@
   "name": "ygig",
   "homepage": "/ygig",
   "productName": "你比我猜",
-  "pwaVersion": "1.0.4",
+  "pwaVersion": "1.0.5",
   "version": "1.0.2",
   "license": "MIT",
   "keywords": [
@@ -45,8 +45,8 @@
     "semver": "^7.3.5"
   },
   "devDependencies": {
-    "@ionic/react": "^6.1.12",
-    "@ionic/react-router": "^6.1.12",
+    "@ionic/react": "^6.7.5",
+    "@ionic/react-router": "^6.7.5",
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
