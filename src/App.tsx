@@ -210,11 +210,13 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
         Globals.dictItems = idiomsData['1-'];
       }
     }
-    this.props.dispatch({
-      type: "TMP_SET_KEY_VAL",
-      key: 'loadingData',
-      val: false,
-    });
+    setTimeout(() => {
+      this.props.dispatch({
+        type: "TMP_SET_KEY_VAL",
+        key: 'loadingData',
+        val: false,
+      });
+    }, 1);
   }
 
   // Prevent device from sleeping.

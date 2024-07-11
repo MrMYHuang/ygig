@@ -106,6 +106,9 @@ https://myhpwa.github.io/ygig
 </a>
 
 ## <a id='history'>版本歷史</a>
+* PWA 1.0.6:
+  * [修正] iOS 啟動 app 後卡在載入中。
+
 * PWA 1.0.5:
   * [修正] 更新離線資料後，更新日期未更新的問題。
 
