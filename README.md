@@ -106,6 +106,10 @@ https://myhpwa.github.io/ygig
 </a>
 
 ## <a id='history'>版本歷史</a>
+* Snap apps 1.1.0:
+  * [修正] Snap 版匯入／匯出存取權限問題.
+  * [優化] 升級至 Electron 31.4.0。
+
 * PWA 1.0.6:
   * [修正] iOS 啟動 app 後卡在載入中。
 

@@ -3,7 +3,7 @@
   "homepage": "/ygig",
   "productName": "你比我猜",
   "pwaVersion": "1.0.6",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "license": "MIT",
   "keywords": [
     "遊戲",
@@ -66,7 +66,7 @@
     "axios": "^0.21.1",
     "customize-cra": "^1.0.0",
     "d3": "^7.6.1",
-    "electron": "^19.0.1",
+    "electron": "^31.4.0",
     "electron-builder": "^23.0.4",
     "history": "^4.10.1",
     "ionicons": "^6",
