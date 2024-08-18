@@ -66,7 +66,8 @@ jobs:
           command: |
             sudo apt update
             sudo apt install -y snapd
-            sudo snap install --classic snapcraft find dist -name "*.snap" | xargs -I {} snapcraft upload {} --release beta
+            sudo snap install --classic snapcraft
+            find dist -name "*.snap" | xargs -I {} snapcraft upload {} --release beta
 
   build-appImage-arm64:
     <<: *defaults
