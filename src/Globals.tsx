@@ -1,38 +1,77 @@
 import fs from 'fs';
 import * as XLSX from 'xlsx';
 import * as zip from 'zip.js-myh';
-import { isPlatform, IonLabel } from '@ionic/react';
 import { DownloadEndedStats, DownloaderHelper, ErrorStats, Stats } from 'node-downloader-helper';
+import { isPlatform, IonLabel } from '@ionic/react';
 import { IDictItem } from './models/DictItem';
 import IndexedDbFuncs from './IndexedDbFuncs';
 
 XLSX.set_fs(fs);
 
-const pwaUrl = process.env.PUBLIC_URL || '';
+const pwaUrl = (import.meta.env.BASE_URL || '').replace(/\/$/, '');
 const bugReportApiUrl = 'https://vh6ud1o56g.execute-api.ap-northeast-1.amazonaws.com/bugReportMailer';
 const idiomsDataUrl = `https://d23fxcqevt3np7.cloudfront.net/dict_idioms.zip`;
 
 const ygigDb = 'ygigDb';
 const idiomsDataKey = 'idiomsData';
+const worksheet = '成語資料';
 let log = '';
 
 var dictItems: Array<IDictItem> = [];
 
 async function downloadData(url: string, progressCallback: Function) {
-  return new Promise<string>((ok, fail) => {
-    const dl = new DownloaderHelper(url, '.', {});
-    dl.on('progress', (stats: Stats) => {
-      progressCallback(stats.progress);
+  if (isPlatform('electron')) {
+    return new Promise<string>((ok, fail) => {
+      const dl = new DownloaderHelper(url, '.', {});
+      dl.on('progress', (stats: Stats) => {
+        progressCallback(stats.progress);
+      });
+      dl.on('end', (downloadInfo: DownloadEndedStats) => {
+        dl.removeAllListeners();
+        ok(downloadInfo.filePath);
+      });
+      dl.on('error', (stats: ErrorStats) => {
+        fail(`${stats.message}`);
+      });
+      dl.start();
     });
-    dl.on('end', (downloadInfo: DownloadEndedStats) => {
-      dl.removeAllListeners();
-      ok(downloadInfo.filePath);
-    });
-    dl.on('error', (stats: ErrorStats) => {
-      fail(`${stats.message}`);
-    });
-    dl.start();
-  });
+  }
+
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`download failed: ${res.status} ${res.statusText}`);
+  }
+
+  const total = Number(res.headers.get('content-length') || 0);
+  const reader = res.body?.getReader();
+  if (!reader) {
+    const buffer = await res.arrayBuffer();
+    progressCallback(100);
+    return new Uint8Array(buffer);
+  }
+
+  let received = 0;
+  const chunks: Uint8Array[] = [];
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    if (value) {
+      chunks.push(value);
+      received += value.length;
+      if (total > 0) {
+        progressCallback((received / total) * 100);
+      }
+    }
+  }
+
+  const out = new Uint8Array(received);
+  let offset = 0;
+  for (const chunk of chunks) {
+    out.set(chunk, offset);
+    offset += chunk.length;
+  }
+  progressCallback(100);
+  return out;
 }
 
 async function clearAppData() {
@@ -78,12 +117,14 @@ function disableAppLog() {
 
 async function xlsToJson(data: Uint8Array) {
   const workbook = XLSX.read(data);
-  const sheet = workbook.Sheets['1-'];
-  return { '1-': XLSX.utils.sheet_to_json(sheet) };
+  const sheet = workbook.Sheets[worksheet];
+  return { [worksheet]: XLSX.utils.sheet_to_json(sheet) };
 }
 
-async function readZip(filePath: string, entryIndex: number = 0) {
-  const data = new Uint8Array(fs.readFileSync(filePath).buffer);
+async function readZip(filePathOrData: string | Uint8Array, entryIndex: number = 0) {
+  const data = typeof filePathOrData === 'string'
+    ? new Uint8Array(fs.readFileSync(filePathOrData).buffer)
+    : filePathOrData;
   const entry = (await new zip.ZipReader(new zip.Uint8ArrayReader(data)).getEntries())[entryIndex];
   return entry.getData!(new zip.Uint8ArrayWriter()) as Promise<Uint8Array>;
 }
@@ -184,6 +225,7 @@ const Globals = {
   enableAppLog,
   disableAppLog,
   ygigDb,
+  worksheet,
   dataResources: [
     { item: "離線成語資料", dataKey: idiomsDataKey, url: idiomsDataUrl },
   ],

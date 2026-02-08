@@ -197,17 +197,18 @@ class _AppOrig extends React.Component<AppOrigProps, State> {
     for (let i = 0; i < Globals.dataResources.length; i++) {
       let item = Globals.dataResources[i];
       try {
-        idiomsData = JSON.parse(new TextDecoder().decode(await IndexedDbFuncs.getZippedFile(item.dataKey)));
+        const dataJson = new TextDecoder().decode(await IndexedDbFuncs.getZippedFile(item.dataKey));
+        idiomsData = JSON.parse(dataJson);
       } catch (err) {
-        const filePath = await Globals.downloadData(item.url, async (progress: number) => {
+        const fileData = await Globals.downloadData(item.url, async (progress: number) => {
         });
-        const data = await Globals.readZip(filePath);
+        const data = await Globals.readZip(fileData);
         idiomsData = await Globals.xlsToJson(data);
         IndexedDbFuncs.saveZippedFile(item.dataKey, new Uint8Array(Buffer.from(JSON.stringify(idiomsData)).buffer));
       }
 
       if (i === 0) {
-        Globals.dictItems = idiomsData['1-'];
+        Globals.dictItems = idiomsData[Globals.worksheet];
       }
     }
     setTimeout(() => {
