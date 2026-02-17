@@ -9,7 +9,7 @@ import IndexedDbFuncs from './IndexedDbFuncs';
 XLSX.set_fs(fs);
 
 const pwaUrl = (import.meta.env.BASE_URL || '').replace(/\/$/, '');
-const bugReportApiUrl = 'https://vh6ud1o56g.execute-api.ap-northeast-1.amazonaws.com/bugReportMailer';
+const bugReportApiUrl = 'https://bug-report.mrmyh.eu.org/bugReportMailer';
 const idiomsDataUrl = `https://d1dhau3ezqw0u0.cloudfront.net/dict_idioms.zip`;
 
 const ygigDb = 'ygigDb';
